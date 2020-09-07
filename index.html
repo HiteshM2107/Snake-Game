@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Snake Game</title>
+
+    <!-- internal CSS -->
+    <style>
+      /* css to make the display full screen without any margin */
+      html,
+      body {
+        height: 100%;
+        margin: 0;
+      }
+
+      /* css to change bgcolor and align everything center */
+      body {
+        background: pink;
+      }
+
+      .play-area {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding-top: 8em;
+      }
+      /* Styling the score and high score canva */
+      .score-area {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        font-weight: bold;
+        font-size: large;
+      }
+      .score-div {
+        padding-right: 14rem;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+      }
+      .highscore-div {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+      }
+      /* give canvas a border to make it look like a display in the middle of screen */
+      canvas {
+        border: 1px solid white;
+        background: black;
+      }
+
+      /* greeting screen CSS */
+
+      /* exporting custom font I downloaded from google fonts. have a look at it when you have time */
+      /* the font is placed in the font folder */
+      @font-face {
+        font-family: gamefont; /* giving a name to the custom font, you can give any name*/
+        src: url("fonts/PressStart2P-Regular.ttf"); /* giving the location of the font file. the font file 
+        is saved with .ttf extension. */
+      }
+
+      .greeting {
+        padding-top: 16rem;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+      }
+
+      /* snake text */
+      #snake {
+        font-family: gamefont;
+        font-size: 5rem;
+        color: black;
+        text-align: center;
+      }
+
+      .Btn {
+        width: 6rem;
+        height: auto;
+        border-radius: 1.5rem;
+        background-color: aliceblue;
+        margin-right: 3rem;
+        font-size: 2rem;
+        outline: none;
+      }
+      .Btn:hover {
+        transition: 0.24s ease-in;
+        background-color: black;
+        color: aliceblue;
+      }
+    </style>
+  </head>
+
+  <!-- BODY -->
+
+  <!-- BODY HAS 2 divs one is a greeting screen which welcomes the user, another is the main playing area -->
+  <body>
+    <!-- greeting screen -->
+    <div id="greet" class="greeting">
+      <p id="snake">Snake.</p>
+      <button class="Btn" id="playBtn">Play</button>
+    </div>
+
+    <!-- play area screen -->
+    <!-- play area has 3 main divs, the score-area div, canva div and the button panel div -->
+    <div id="play" class="play-area">
+      <div class="score-area">
+        <!-- score area div has a score div which has score and the score value manipulated by JS -->
+        <!-- and the highscore div which again has the highscore and the highscore value  -->
+        <div class="score-div">
+          <p id="score-text" style="color: black; margin-right: 8px;">Score:</p>
+          <p id="score" style="color: black;"></p>
+        </div>
+        <div class="highscore-div">
+          <p id="highScore-text" style="color: black; margin-right: 8px;">
+            HighScore:
+          </p>
+          <p id="highScore" style="color: black;"></p>
+        </div>
+      </div>
+
+      <!-- canvas to draw the game on the webpage -->
+      <div class="canva-div">
+        <canvas id="gc" width="400" height="400"> </canvas>
+      </div>
+      <!-- Button panel div -->
+      <!-- contains two buttons, reset and the back button -->
+      <div class="btn-pannel">
+        <button class="Btn" id="backBtn">Back</button>
+        <button class="Btn" id="resetBtn">Reset </button>
+      </div>
+    </div>
+
+    <!-- javaScript -->
+    <script src="script.js"></script>
+  </body>
+</html>
